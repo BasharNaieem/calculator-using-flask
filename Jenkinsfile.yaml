@@ -1,6 +1,6 @@
 pipeline:
   agent:
-    any: true
+    any: 
   
   environment:
     IMAGE_NAME: 'python-docker-jenkins:latest'
