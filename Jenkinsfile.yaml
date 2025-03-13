@@ -1,6 +1,6 @@
 pipeline:
   agent:
-    any: 
+    any:
   
   environment:
     IMAGE_NAME: 'python-docker-jenkins:latest'
@@ -9,18 +9,20 @@ pipeline:
   stages:
     - stage: 'Clone Repository'
       steps:
-        - script: |
-            git clone https://github.com/BasharNaieem/calculator-using-flask.git .
-      
+        - git: 
+            url: 'https://github.com/BasharNaieem/calculator-using-flask.git'
+            branch: 'main'
+
     - stage: 'Build Docker Image'
       steps:
-        - sh: docker build -t $IMAGE_NAME .
+        - sh: 'docker build -t $IMAGE_NAME .'
 
     - stage: 'Stop Existing Container'
       steps:
-        - sh: docker stop $CONTAINER_NAME || true
-        - sh: docker rm $CONTAINER_NAME || true
+        - sh: 'docker stop $CONTAINER_NAME || true'
+        - sh: 'docker rm $CONTAINER_NAME || true'
 
     - stage: 'Run Docker Container'
       steps:
-        - sh: docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME
+        - sh: 'docker run -d -p 5000:5000 --name $CONTAINER_NAME $IMAGE_NAME'
+
