@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-username/python-docker-jenkins.git'
+                git 'https://github.com/BasharNaieem/calculator-using-flask.git'
             }
         }
 
